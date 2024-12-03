@@ -1,4 +1,9 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
-    "editor.acceptSuggestionOnCommitCharacter": false
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "files.associations": {
+        "iosfwd": "cpp",
+        "string": "cpp",
+        "regex": "cpp"
+    }
 }
