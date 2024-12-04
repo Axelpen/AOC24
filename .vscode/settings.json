@@ -4,6 +4,15 @@
     "files.associations": {
         "iosfwd": "cpp",
         "string": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "vector": "cpp",
+        "list": "cpp",
+        "xstring": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "xhash": "cpp",
+        "xutility": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp"
     }
 }
