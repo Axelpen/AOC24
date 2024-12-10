@@ -3,67 +3,48 @@
 #define MP make_pair
 typedef long long ll;
 
+
 using namespace std;
-
-
 int main() {
     ifstream f("input.txt");
     vector<string> grid;
     string line;
 
     while (getline(f, line)) {
-        grid.push_back(line);
+        grid.PB(line);
     }
 
     int n = grid.size();
     int m = grid[0].size();
-    string target = "XMAS";
-    string reversed_target = "SAMX"; 
+
     int count = 0;
 
+    for(int i = 1; i < n-1;i++){
+        for(int j = 1; j < m-1; j++){
+            char center = grid[i][j];
+            char top_left = grid[i - 1][j - 1];
+            char top_right = grid[i - 1][j + 1];
+            char bottom_left = grid[i + 1][j - 1];
+            char bottom_right = grid[i + 1][j + 1];
 
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            
-            if (j + 3 < m) {
-                string horizontal = grid[i].substr(j, 4);
-                if (horizontal == target || horizontal == reversed_target) {
+            if(center == 'A'){
+                if(top_left == 'M' && top_right == 'S' && bottom_left == 'M' && bottom_right == 'S'){ 
                     count++;
                 }
-            }
-
-            if (i + 3 < n) {
-                string vertical = "";
-                for (int k = 0; k < 4; k++) {
-                    vertical += grid[i + k][j];
+                if(top_left == 'S' && top_right == 'M' && bottom_left == 'S' && bottom_right == 'M'){ 
+                count++;
                 }
-                if (vertical == target || vertical == reversed_target) {
-                    count++;
+                
+                if(top_left == 'S' && top_right == 'S' && bottom_left == 'M' && bottom_right == 'M'){ 
+                count++;
                 }
-            }
-
-            if (i + 3 < n && j + 3 < m) {
-                string diagonal_down_right = "";
-                for (int k = 0; k < 4; k++) {
-                    diagonal_down_right += grid[i + k][j + k];
-                }
-                if (diagonal_down_right == target || diagonal_down_right == reversed_target) {
-                    count++;
-                }
-            }
-            
-            if (i + 3 < n && j - 3 >= 0) {
-                string diagonal_down_left = "";
-                for (int k = 0; k < 4; k++) {
-                    diagonal_down_left += grid[i + k][j - k];
-                }
-                if (diagonal_down_left == target || diagonal_down_left == reversed_target) {
-                    count++;
+                                
+                if(top_left == 'M' && top_right == 'M' && bottom_left == 'S' && bottom_right == 'S'){ 
+                count++;
                 }
             }
         }
     }
-
     cout << count << endl;
     return 0;
 }

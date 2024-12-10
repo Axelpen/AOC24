@@ -12,13 +12,13 @@ int main() {
     string line;
 
     while (getline(f, line)) {
-        grid.push_back(line);
+        grid.PB(line);
     }
 
     int n = grid.size();
     int m = grid[0].size();
-    string target = "XMAS";
-    string reversed_target = "SAMX"; 
+    string xmas = "XMAS";
+    string reverse_xmas = "SAMX"; 
     int count = 0;
 
 
@@ -27,7 +27,7 @@ int main() {
             
             if (j + 3 < m) {
                 string horizontal = grid[i].substr(j, 4);
-                if (horizontal == target || horizontal == reversed_target) {
+                if (horizontal == xmas || horizontal == reverse_xmas) {
                     count++;
                 }
             }
@@ -37,7 +37,7 @@ int main() {
                 for (int k = 0; k < 4; k++) {
                     vertical += grid[i + k][j];
                 }
-                if (vertical == target || vertical == reversed_target) {
+                if (vertical == xmas || vertical == reverse_xmas) {
                     count++;
                 }
             }
@@ -47,7 +47,7 @@ int main() {
                 for (int k = 0; k < 4; k++) {
                     diagonal_down_right += grid[i + k][j + k];
                 }
-                if (diagonal_down_right == target || diagonal_down_right == reversed_target) {
+                if (diagonal_down_right == xmas || diagonal_down_right == reverse_xmas) {
                     count++;
                 }
             }
@@ -57,7 +57,7 @@ int main() {
                 for (int k = 0; k < 4; k++) {
                     diagonal_down_left += grid[i + k][j - k];
                 }
-                if (diagonal_down_left == target || diagonal_down_left == reversed_target) {
+                if (diagonal_down_left == xmas || diagonal_down_left == reverse_xmas) {
                     count++;
                 }
             }

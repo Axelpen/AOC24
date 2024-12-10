@@ -13,6 +13,10 @@
         "xhash": "cpp",
         "xutility": "cpp",
         "type_traits": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "ostream": "cpp",
+        "algorithm": "cpp",
+        "iterator": "cpp",
+        "xmemory": "cpp"
     }
 }
